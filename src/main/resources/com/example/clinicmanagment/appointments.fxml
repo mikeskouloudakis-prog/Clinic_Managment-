@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.clinicmanagment.AppointmentController">
+
+    <!-- SIDEBAR -->
+
+    <left>
+
+        <VBox spacing="18"
+              prefWidth="260"
+              alignment="TOP_CENTER"
+              styleClass="sidebar">
+
+            <Label text="CLINIC"
+                   styleClass="sidebar-title"/>
+
+            <Button text="Dashboard"
+                    onAction="#openDashboard"/>
+
+            <Button text="Patients"
+                    onAction="#openPatients"/>
+
+            <Button text="Doctors"
+                    onAction="#openDoctors"/>
+
+            <Button text="Appointments"
+                    styleClass="menu-active"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- MAIN CONTENT -->
+
+    <center>
+
+        <VBox spacing="20"
+              alignment="TOP_LEFT"
+              fillWidth="true"
+              styleClass="content-area">
+
+            <Label text="Appointments Management"
+                   styleClass="title-label"/>
+
+            <!-- SEARCH -->
+
+            <HBox styleClass="form-row">
+
+                <TextField fx:id="searchField"
+                           promptText="Search by Doctor"
+                           prefWidth="350"/>
+
+                <Button text="Search"
+                        onAction="#searchAppointments"/>
+
+                <Button text="Show All"
+                        onAction="#showAllAppointments"/>
+
+            </HBox>
+
+            <!-- BOOK APPOINTMENT -->
+
+            <HBox styleClass="form-row">
+
+                <ComboBox fx:id="patientComboBox"
+                          promptText="Select Patient"
+                          prefWidth="220"/>
+
+                <ComboBox fx:id="doctorComboBox"
+                          promptText="Select Doctor"
+                          prefWidth="220"/>
+
+                <DatePicker fx:id="datePicker"/>
+
+                <ComboBox fx:id="timeComboBox"
+                          promptText="Select Time"
+                          prefWidth="180"/>
+
+                <Button text="Book Appointment"
+                        onAction="#bookAppointment"/>
+
+            </HBox>
+
+            <!-- TABLE -->
+
+            <TableView fx:id="appointmentTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="dateColumn"
+                                 text="Date"
+                                 prefWidth="250"/>
+
+                    <TableColumn fx:id="patientColumn"
+                                 text="Patient"
+                                 prefWidth="350"/>
+
+                    <TableColumn fx:id="doctorColumn"
+                                 text="Doctor"
+                                 prefWidth="350"/>
+
+                    <TableColumn fx:id="timeColumn"
+                                 text="Time"
+                                 prefWidth="250"/>
+
+                </columns>
+
+            </TableView>
+
+            <Button text="Delete Appointment"
+                    onAction="#deleteAppointment"/>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

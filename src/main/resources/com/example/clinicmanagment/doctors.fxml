@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.clinicmanagment.DoctorController">
+
+    <!-- SIDEBAR -->
+
+    <left>
+
+        <VBox spacing="18"
+              prefWidth="260"
+              alignment="TOP_CENTER"
+              styleClass="sidebar">
+
+            <Label text="CLINIC"
+                   styleClass="sidebar-title"/>
+
+            <Button text="Dashboard"
+                    onAction="#openDashboard"/>
+
+            <Button text="Patients"
+                    onAction="#openPatients"/>
+
+            <Button text="Doctors"
+                    styleClass="menu-active"/>
+
+            <Button text="Appointments"
+                    onAction="#openAppointments"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- CONTENT -->
+
+    <center>
+
+        <VBox spacing="20"
+              alignment="TOP_LEFT"
+              fillWidth="true"
+              styleClass="content-area">
+
+            <Label text="Doctors Management"
+                   styleClass="title-label"/>
+
+            <!-- ADD DOCTOR -->
+
+            <HBox styleClass="form-row">
+
+                <TextField fx:id="nameField"
+                           promptText="Doctor Name"
+                           prefWidth="300"/>
+
+                <TextField fx:id="specialtyField"
+                           promptText="Specialty"
+                           prefWidth="300"/>
+
+                <Button text="Add Doctor"
+                        onAction="#addDoctor"/>
+
+            </HBox>
+
+            <!-- TABLE -->
+
+            <TableView fx:id="doctorTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="nameColumn"
+                                 text="Doctor Name"
+                                 prefWidth="650"/>
+
+                    <TableColumn fx:id="specialtyColumn"
+                                 text="Specialty"
+                                 prefWidth="650"/>
+
+                </columns>
+
+            </TableView>
+
+            <Button text="Delete Doctor"
+                    onAction="#deleteDoctor"/>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.clinicmanagment.PatientController">
+
+    <!-- SIDEBAR -->
+
+    <left>
+
+        <VBox spacing="18"
+              prefWidth="260"
+              alignment="TOP_CENTER"
+              styleClass="sidebar">
+
+            <Label text="CLINIC"
+                   styleClass="sidebar-title"/>
+
+            <Button text="Dashboard"
+                    onAction="#openDashboard"/>
+
+            <Button text="Patients"
+                    styleClass="menu-active"/>
+
+            <Button text="Doctors"
+                    onAction="#openDoctors"/>
+
+            <Button text="Appointments"
+                    onAction="#openAppointments"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- CONTENT -->
+
+    <center>
+
+        <VBox spacing="20"
+              alignment="TOP_LEFT"
+              fillWidth="true"
+              styleClass="content-area">
+
+            <Label text="Patients Management"
+                   styleClass="title-label"/>
+
+            <!-- SEARCH -->
+
+            <HBox styleClass="form-row">
+
+                <TextField fx:id="searchField"
+                           promptText="Search Patient"
+                           prefWidth="350"/>
+
+                <Button text="Search"
+                        onAction="#searchPatient"/>
+
+                <Button text="Show All"
+                        onAction="#showAllPatients"/>
+
+            </HBox>
+
+            <!-- ADD PATIENT -->
+
+            <HBox styleClass="form-row">
+
+                <TextField fx:id="nameField"
+                           promptText="Enter Name"
+                           prefWidth="250"/>
+
+                <TextField fx:id="ageField"
+                           promptText="Enter Age"
+                           prefWidth="150"/>
+
+                <TextField fx:id="phoneField"
+                           promptText="Enter Phone"
+                           prefWidth="250"/>
+
+                <Button text="Add Patient"
+                        onAction="#addPatient"/>
+
+            </HBox>
+
+            <!-- TABLE -->
+
+            <TableView fx:id="patientTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="nameColumn"
+                                 text="Name"
+                                 prefWidth="450"/>
+
+                    <TableColumn fx:id="ageColumn"
+                                 text="Age"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="phoneColumn"
+                                 text="Phone"
+                                 prefWidth="550"/>
+
+                </columns>
+
+            </TableView>
+
+            <Button text="Delete Patient"
+                    onAction="#deletePatient"/>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

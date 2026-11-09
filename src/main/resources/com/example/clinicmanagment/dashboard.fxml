@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.clinicmanagment.DashboardController">
+
+    <left>
+
+        <VBox spacing="18"
+              prefWidth="260"
+              alignment="TOP_CENTER"
+              styleClass="sidebar">
+
+            <Label text="CLINIC"
+                   styleClass="sidebar-title"/>
+
+            <Button text="Dashboard"
+                    styleClass="menu-active"/>
+
+            <Button text="Patients"
+                    onAction="#openPatientsPage"/>
+
+            <Button text="Doctors"
+                    onAction="#openDoctorsPage"/>
+
+            <Button text="Appointments"
+                    onAction="#openAppointmentsPage"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <VBox spacing="20"
+              alignment="TOP_LEFT"
+              fillWidth="true"
+              styleClass="content-area">
+
+            <Label text="Clinic Dashboard"
+                   styleClass="title-label"/>
+
+            <Label text="Clinic Statistics &amp; Daily Schedule"
+                   style="-fx-font-size: 15px;
+                          -fx-text-fill: #777777;"/>
+
+            <HBox spacing="30"
+                  alignment="CENTER_LEFT">
+
+                <!-- PATIENTS -->
+
+                <VBox alignment="CENTER"
+                      spacing="12"
+                      prefWidth="260"
+                      prefHeight="160"
+                      styleClass="dashboard-card">
+
+                    <Label fx:id="patientsLabel"
+                           text="0"
+                           styleClass="dashboard-number"/>
+
+                    <Label text="Patients"
+                           styleClass="dashboard-text"/>
+
+                </VBox>
+
+                <!-- DOCTORS -->
+
+                <VBox alignment="CENTER"
+                      spacing="12"
+                      prefWidth="260"
+                      prefHeight="160"
+                      styleClass="dashboard-card">
+
+                    <Label fx:id="doctorsLabel"
+                           text="0"
+                           styleClass="dashboard-number"/>
+
+                    <Label text="Doctors"
+                           styleClass="dashboard-text"/>
+
+                </VBox>
+
+                <!-- APPOINTMENTS -->
+
+                <VBox alignment="CENTER"
+                      spacing="12"
+                      prefWidth="300"
+                      prefHeight="160"
+                      styleClass="dashboard-card">
+
+                    <Label fx:id="appointmentsLabel"
+                           text="0"
+                           styleClass="dashboard-number"/>
+
+                    <Label text="Today's Appointments"
+                           styleClass="dashboard-text"/>
+
+                </VBox>
+
+            </HBox>
+
+            <Label text="Today's Schedule"
+                   styleClass="title-label"/>
+
+            <TableView fx:id="appointmentTable"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="timeColumn"
+                                 text="Time"
+                                 prefWidth="180"/>
+
+                    <TableColumn fx:id="patientColumn"
+                                 text="Patient"
+                                 prefWidth="350"/>
+
+                    <TableColumn fx:id="doctorColumn"
+                                 text="Doctor"
+                                 prefWidth="350"/>
+
+                    <TableColumn fx:id="specialtyColumn"
+                                 text="Specialty"
+                                 prefWidth="350"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
